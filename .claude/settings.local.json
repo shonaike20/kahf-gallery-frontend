@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//m//**)",
+      "Bash(find:*)",
+      "Bash(node:*)",
+      "Bash(cd:*)",
+      "Bash(curl:*)",
+      "Bash(2)",
+      "Bash(du -sh M:/kahf-gallery-frontend/src/kahf-images/*)",
+      "Bash(npm install:*)",
+      "Bash(npm ls:*)",
+      "Bash(npm run:*)",
+      "Bash(ls M:/kahf-gallery-frontend/dist/assets/*.webp)",
+      "Bash(du -sh M:/kahf-gallery-frontend/dist/assets/*.webp)",
+      "Bash(grep -E \"\\\\.\\(js|jsx|ts|tsx|json|html\\)$\")"
+    ]
+  }
+}
