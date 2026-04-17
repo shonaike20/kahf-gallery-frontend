@@ -117,7 +117,7 @@ This series resists the spectacle of ruin. Instead, it attends to the ordinary g
   {
     id: 'minan-an-outer-womb',
     series_name: 'Minan: An Outer Womb',
-    author: 'Sayid Sayid',
+    author: 'Sayid Don',
     description: `In Somali, the word "minan" has two meanings. The first is a mother's womb; the second is home itself, a womb in the outer world. The city of Mogadishu hosts millions of residents living within her womb. Once a beautiful city, Mogadishu endured a heartbreaking history of destruction, civil war, and terrorism. Today, she dreams of healing. Mogadishu's inhabitants mirror her condition; broken people slowly recovering from the wounds of time.
 
 This photographic series, titled "Minan: An Outer Womb," explores the relationship of coexistence between Mogadishu and its residents. When this project began, I sought to understand how urban spaces host people within them. But what happens when that city is war-torn, and its people are resilient?
@@ -126,16 +126,16 @@ An old man stands tall in a compound once home to one of East Africa's most famo
 
 This project treats Mogadishu as a canvas of resilience and recovery.`,
     images: [
-      { id: '2-01', image_name: 'Al Uruba',   description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', '1000330627.jpg') },
-      { id: '2-02', image_name: 'Rising',      description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', '1000330736.jpg') },
-      { id: '2-03', image_name: 'Skyline',     description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', '1000330739.jpg') },
-      { id: '2-04', image_name: 'Washed',      description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', '1000389680.jpg') },
-      { id: '2-05', image_name: 'Compound',    description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', 'DSCF3441.jpg') },
-      { id: '2-06', image_name: 'Sisters',     description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', 'DSCF3944.JPG') },
-      { id: '2-07', image_name: 'Football',    description: 'Lido Beach, Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', 'DSCF4367.JPG') },
-      { id: '2-08', image_name: 'Shore',       description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', 'DSCF4369.JPG') },
-      { id: '2-09', image_name: 'Resilience',  description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', 'DSCF4620.JPG') },
-      { id: '2-10', image_name: 'Recovery',    description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', 'DSCF8023.JPG') },
+      { id: '2-01', image_name: 'Al Uruba Hotel',                                    description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', '1000330627.jpg') },
+      { id: '2-02', image_name: 'Rising',                                             description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', '1000330736.jpg') },
+      { id: '2-03', image_name: 'The Shop Opposite the Sea',                          description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', '1000330739.jpg') },
+      { id: '2-04', image_name: 'A Dawn of a Thousand Dawns',                        description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', '1000389680.jpg') },
+      { id: '2-05', image_name: 'The Fish Market Has a View',                        description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', 'DSCF3441.jpg') },
+      { id: '2-06', image_name: 'Dhallaanimo Hufneydaa (Oh Precious Childhood)',     description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', 'DSCF3944.JPG') },
+      { id: '2-07', image_name: 'Gacal is ma Ciriirsho (The Stairs Can Carry Us Both)', description: 'Lido Beach, Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', 'DSCF4367.JPG') },
+      { id: '2-08', image_name: 'Sisters',                                            description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', 'DSCF4369.JPG') },
+      { id: '2-09', image_name: 'Resilience',                                         description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', 'DSCF4620.JPG') },
+      { id: '2-10', image_name: 'Young Sufis',                                        description: 'Mogadishu', src: i('2. Minan- An Outer Womb by Sayid Sayid', 'DSCF8023.JPG') },
     ],
   },
 
@@ -193,7 +193,7 @@ All photographs were taken with a Nikon F2 using Kodak Tri-X 400 film.`,
   {
     id: 'djanet',
     series_name: 'Djanet',
-    author: 'Hassan Grey',
+    author: 'Hassan Gray',
     description: `"The general perception [from] the world is that the desert is desolate. That the desert is dominated by nothingness. That the desert is a void. And this is not true. In reality the desert has everything."
 - Ibrahim Al-Koni, 2014
 
@@ -228,7 +228,6 @@ Within the Djanet province, the Saharan landscape's diversity is made manifest w
       { id: '6-05', image_name: 'Untitled 8',  description: 'Armenia / Turkey', src: i('6. Untitled by Roberto Tenace', 'roberto - tenace -8jpg.jpg') },
       { id: '6-06', image_name: 'Untitled 9',  description: 'Armenia / Turkey', src: i('6. Untitled by Roberto Tenace', 'roberto - tenace -9.jpg') },
       { id: '6-07', image_name: 'Untitled 13', description: 'Armenia / Turkey', src: i('6. Untitled by Roberto Tenace', 'roberto - tenace -13.jpg') },
-      { id: '6-08', image_name: 'Untitled 13b', description: 'Armenia / Turkey', src: i('6. Untitled by Roberto Tenace', 'roberto - tenace -13 (1).jpg') },
       { id: '6-09', image_name: 'Untitled 14', description: 'Armenia / Turkey', src: i('6. Untitled by Roberto Tenace', 'roberto - tenace -14.jpg') },
       { id: '6-10', image_name: 'Untitled 15', description: 'Armenia / Turkey', src: i('6. Untitled by Roberto Tenace', 'roberto - tenace -15.jpg') },
     ],

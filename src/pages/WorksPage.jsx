@@ -58,7 +58,7 @@ export default function WorksPage() {
       </button>
 
       {/* Page header */}
-      <div ref={headerRef} className="max-w-6xl mx-auto px-8 md:px-12 pt-24 pb-12">
+      <div ref={headerRef} className="max-w-6xl mx-auto px-4 sm:px-8 md:px-12 pt-20 sm:pt-24 pb-10 sm:pb-12">
         <p className="font-mono text-xs text-umber/40 tracking-[0.3em] uppercase mb-3">
           The Collection
         </p>
@@ -73,7 +73,7 @@ export default function WorksPage() {
       </div>
 
       {/* Divider */}
-      <div className="max-w-6xl mx-auto px-8 md:px-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 md:px-12">
         <div className="border-t border-dust" />
       </div>
 
@@ -85,8 +85,8 @@ export default function WorksPage() {
       ) : (
         <div
           ref={gridRef}
-          className="max-w-6xl mx-auto px-8 md:px-12 py-12
-                     grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="max-w-6xl mx-auto px-4 sm:px-8 md:px-12 py-8 sm:py-12
+                     grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           {series.map((s, idx) => (
             <div

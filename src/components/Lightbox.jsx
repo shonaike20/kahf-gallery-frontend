@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 
 export default function Lightbox({ image, onClose, onPrev, onNext }) {
-  const overlayRef   = useRef(null)
-  const panelRef     = useRef(null)
+  const overlayRef    = useRef(null)
+  const panelRef      = useRef(null)
+  const touchStartX   = useRef(null)
   const [fullLoaded, setFullLoaded] = useState(false)
 
   // Progressive load: show thumb immediately, swap to full-res when ready
@@ -42,6 +43,20 @@ export default function Lightbox({ image, onClose, onPrev, onNext }) {
     return () => window.removeEventListener('keydown', handler)
   }, [onPrev, onNext])
 
+  function onTouchStart(e) {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  function onTouchEnd(e) {
+    if (touchStartX.current === null) return
+    const dx = e.changedTouches[0].clientX - touchStartX.current
+    if (Math.abs(dx) > 50) {
+      if (dx > 0) onPrev?.()
+      else onNext?.()
+    }
+    touchStartX.current = null
+  }
+
   if (!image) return null
 
   return (
@@ -52,8 +67,10 @@ export default function Lightbox({ image, onClose, onPrev, onNext }) {
     >
       <div
         ref={panelRef}
-        className="relative max-w-4xl max-h-[90vh] w-full mx-4 flex flex-col bg-paper shadow-2xl"
+        className="relative max-w-4xl max-h-[90vh] w-full mx-2 sm:mx-4 flex flex-col bg-paper shadow-2xl"
         onClick={e => e.stopPropagation()}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
       >
         {/* Close */}
         <button
@@ -107,7 +124,7 @@ export default function Lightbox({ image, onClose, onPrev, onNext }) {
         </div>
 
         {/* Meta */}
-        <div className="px-8 py-5 border-t border-dust">
+        <div className="px-4 sm:px-8 py-4 sm:py-5 border-t border-dust">
           <p className="font-display text-lg text-ink">{image.image_name}</p>
           <p className="font-body text-sm text-umber mt-1">
             {image.author}

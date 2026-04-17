@@ -78,16 +78,16 @@ export default function SeriesDetailPage() {
 
   // Hero image driven by heroIndex
   const heroImage     = images[heroIndex ?? 0]
-  const galleryImages = images.filter(img => img.id !== heroImage?.id)
+  const galleryImages = images
 
   const heroPrev = () => setHeroIndex(i => (i - 1 + images.length) % images.length)
   const heroNext = () => setHeroIndex(i => (i + 1) % images.length)
 
-  // Lightbox helpers — navigate through galleryImages
+  // Lightbox helpers — navigate through all images
   const openLightbox  = i => setLightboxIndex(i)
   const closeLightbox = () => setLightboxIndex(null)
-  const prevImage     = () => setLightboxIndex(i => (i - 1 + galleryImages.length) % galleryImages.length)
-  const nextImage     = () => setLightboxIndex(i => (i + 1) % galleryImages.length)
+  const prevImage     = () => setLightboxIndex(i => (i - 1 + images.length) % images.length)
+  const nextImage     = () => setLightboxIndex(i => (i + 1) % images.length)
 
   return (
     <div className="min-h-screen bg-manila">
@@ -106,11 +106,12 @@ export default function SeriesDetailPage() {
         ← Back
       </button>
 
-      {/* All series link */}
+      {/* All series link — hidden on very small screens to avoid crowding Back */}
       <button
         onClick={() => navigate('/works')}
         className="fixed top-6 left-28 z-30 font-mono text-xs text-umber/40
-                   hover:text-umber/70 transition-colors tracking-widest uppercase"
+                   hover:text-umber/70 transition-colors tracking-widest uppercase
+                   hidden sm:block"
         data-cursor-grow
       >
         All Works
@@ -153,7 +154,7 @@ export default function SeriesDetailPage() {
                          bg-ink/10 hover:bg-ink/30 backdrop-blur-sm
                          rounded-full border border-paper/10 hover:border-paper/30
                          transition-all duration-300
-                         opacity-0 group-hover/hero:opacity-100"
+                         opacity-100 md:opacity-0 md:group-hover/hero:opacity-100"
               data-cursor-grow
               aria-label="Previous image"
             >
@@ -170,7 +171,7 @@ export default function SeriesDetailPage() {
                          bg-ink/10 hover:bg-ink/30 backdrop-blur-sm
                          rounded-full border border-paper/10 hover:border-paper/30
                          transition-all duration-300
-                         opacity-0 group-hover/hero:opacity-100"
+                         opacity-100 md:opacity-0 md:group-hover/hero:opacity-100"
               data-cursor-grow
               aria-label="Next image"
             >
@@ -179,9 +180,9 @@ export default function SeriesDetailPage() {
               </svg>
             </button>
 
-            {/* Dot indicators */}
+            {/* Dot indicators — always visible on mobile, hover-reveal on desktop */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10
-                            flex gap-1.5 opacity-0 group-hover/hero:opacity-100 transition-opacity duration-300">
+                            flex gap-1.5 opacity-100 md:opacity-0 md:group-hover/hero:opacity-100 transition-opacity duration-300">
               {images.map((_, i) => (
                 <button
                   key={i}
@@ -199,7 +200,7 @@ export default function SeriesDetailPage() {
       </div>
 
       {/* ── Metadata ──────────────────────────────────────────────────────── */}
-      <div className="max-w-5xl mx-auto px-8 md:px-12 py-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-8 md:px-12 py-10 sm:py-16">
         <div ref={metaRef} className="border-b border-dust pb-12 mb-12">
           {/* Author label */}
           <p className="font-mono text-xs text-umber/50 tracking-[0.3em] uppercase mb-4">
@@ -219,7 +220,7 @@ export default function SeriesDetailPage() {
           )}
 
           {/* Stats row */}
-          <div className="flex gap-8 mt-8">
+          <div className="flex flex-wrap gap-6 mt-8">
             {series?.image_count && (
               <div>
                 <p className="font-mono text-xs text-umber/40 uppercase tracking-widest">Works</p>
@@ -252,42 +253,52 @@ export default function SeriesDetailPage() {
               ref={gridRef}
               className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
             >
-              {galleryImages.map((img, i) => (
-                <div
-                  key={img.id}
-                  className="grid-item cursor-pointer group"
-                  style={{ opacity: 0 }}
-                  onClick={() => openLightbox(i)}
-                  data-cursor-grow
-                >
-                  <div className="relative overflow-hidden aspect-square bg-dust">
-                    <img
-                      src={img.thumb}
-                      alt={img.image_name}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover
-                                 group-hover:scale-[1.08] transition-transform duration-500 ease-out"
-                    />
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/20
-                                    transition-colors duration-300" />
-                    <div className="absolute inset-0 flex items-end p-3
-                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div>
-                        <p className="font-display text-paper text-sm leading-tight">
-                          {img.image_name}
-                        </p>
-                        {img.description && (
-                          <p className="font-mono text-paper/60 text-xs mt-0.5">
-                            {img.description}
+              {galleryImages.map((img, i) => {
+                const isActive = i === heroIndex
+                return (
+                  <div
+                    key={img.id}
+                    className="grid-item cursor-pointer group"
+                    style={{ opacity: 0 }}
+                    onClick={() => openLightbox(i)}
+                    data-cursor-grow
+                  >
+                    <div className={`relative overflow-hidden aspect-square bg-dust
+                                    ring-2 transition-all duration-300
+                                    ${isActive ? 'ring-umber/70' : 'ring-transparent'}`}>
+                      <img
+                        src={img.thumb}
+                        alt={img.image_name}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover
+                                   group-hover:scale-[1.08] transition-transform duration-500 ease-out"
+                      />
+                      {/* Active indicator */}
+                      {isActive && (
+                        <div className="absolute top-2 right-2 z-10
+                                        w-2 h-2 rounded-full bg-umber/80" />
+                      )}
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/20
+                                      transition-colors duration-300" />
+                      <div className="absolute inset-0 flex items-end p-3
+                                      opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div>
+                          <p className="font-display text-paper text-sm leading-tight">
+                            {img.image_name}
                           </p>
-                        )}
+                          {img.description && (
+                            <p className="font-mono text-paper/60 text-xs mt-0.5">
+                              {img.description}
+                            </p>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         )}

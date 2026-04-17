@@ -12,6 +12,9 @@ export default {
         ink:     '#1A1510',
         inksoft: '#3A3028',
       },
+      scale: {
+        '103': '1.03',
+      },
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],
         body:    ['"DM Sans"', 'system-ui', 'sans-serif'],
